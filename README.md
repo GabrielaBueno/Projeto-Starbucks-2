@@ -4,4 +4,6 @@ cliente de uma aplicação web, utilizando principalmente JavaScript e integraç
 Link de acesso - https://www.starbucks.com.br/home
 
 Nosso link de acesso utilizando GitHub Pages - https://gabrielabueno.github.io/Projeto-Starbucks-2/
+
+
 Parceria- Leonardo Gabriel Ferreira Sato
