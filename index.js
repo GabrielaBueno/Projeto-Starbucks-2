@@ -1,7 +1,7 @@
-import home from "./index1.js";
-import cadastro from "./index2.js";
-import login from "./index3.js";
-import dashboard from "./index4.js";
+import home from "/index1.js";
+import cadastro from "/index2.js";
+import login from "/index3.js";
+import dashboard from "/index4.js";
 const btn=document.getElementById("btn-entrar");
 const btn1=document.getElementById("btn-participe");
 const main=document.querySelector('#root');
