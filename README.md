@@ -5,7 +5,9 @@ Cadastramento de usuarios : pagina web que contém um formulário para cadastro 
 
 Publicação de conteudos para o administrador : o usuário deve ser capaz de publicar conteudos textuais, imagens ou videos no seu próprio perfil. Podem ser utilizados recursos de HTML5, juntamente com tecnologias de upload de imagens ou videos para o servidor para implementar essa funcionalidade. Onde o envio de arquivos deve ser realizado utilizando a funcionalidade de upload de arquivos em uma aplicação web.
 
-Busca de conteudo : cada usuario deve ser capaz de realizar buscas nos conteudos publicados.  Para as funcionalidades de Login e cadastro de usuarios, será permitida a reutilização de codigos apresentados em aula ou disponıveis em outros repositorios.  
+Busca de conteudo : cada usuario deve ser capaz de realizar buscas nos conteudos publicados.  Para as funcionalidades de Login e cadastro de usuarios, será permitida a reutilização de codigos apresentados em aula ou disponıveis em outros repositorios. 
+
+Link de acesso a API- https://github.com/sato1001/starbucks-API
 
 Link de acesso - https://www.starbucks.com.br/home
 
