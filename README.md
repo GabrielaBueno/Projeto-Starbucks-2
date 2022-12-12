@@ -14,6 +14,8 @@ Nosso link de acesso utilizando GitHub Pages - https://gabrielabueno.github.io/P
 
 Parceria- Leonardo Gabriel Ferreira Sato.
 
+Divisão das atividades:  Gabriela responsável pela atualização do código e o Leonardo sendo responsável pelo envio da API. 
+
 
 No PROJETO 2
 
