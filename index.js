@@ -103,7 +103,7 @@ const init=()=>{
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (validClasses.length == 2 && invalidClasses.length == 0) {
-            fetch('http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/auth/login', {
+            fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -219,7 +219,7 @@ const init=()=>{
         submit.addEventListener("click", (e) => {
           e.preventDefault();
          
-          fetch('http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/auth/register', {
+          fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/auth/register', {
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -270,7 +270,7 @@ const init=()=>{
                 formData.append(myFiles.item(key).name, myFiles.item(key))
             })
 
-            const response = await fetch('http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/upload', {
+            const response = await fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/upload', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -305,7 +305,7 @@ const init=()=>{
           main.appendChild(dashboard1());
           const lista=document.getElementById("lista");
           let image = document.getElementById("image");      
-          fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
+          fetch("https://ec2-3-88-184-58.compute-1.amazonaws.com/fotos")
               .then((response) => {
                 return response.json();
               })
