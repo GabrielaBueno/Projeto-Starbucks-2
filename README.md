@@ -1,10 +1,9 @@
 No PROJETO 3
 
-Login : realizac ̧ao do login da aplicação utilizando o conceito de Sessões utilizando Cookies.
+Login : realizaçãoo do login da aplicação utilizando o conceito de sessões utilizando Cookies.
 Cadastramento de usuarios : pagina web que contém um formulário para cadastro do usuario. O formulário deve apresentar validação de existencia dos campos, verificação de unicidade do login e email.
 
-Publicação de conteudos para o administrador : o usuario deve ser capaz de publicar conteudos textuais, imagens ou videos no seu próprio perfil. Podem ser utilizados recursos de HTML5, juntamente com tecnologias de upload de imagens ou videos para o servidor para implementar essa funcionalidade. O envio de arquivos deve ser realizado
-utilizando a funcionalidade de upload de arquivos em uma aplicação web.
+Publicação de conteudos para o administrador : o usuário deve ser capaz de publicar conteudos textuais, imagens ou videos no seu próprio perfil. Podem ser utilizados recursos de HTML5, juntamente com tecnologias de upload de imagens ou videos para o servidor para implementar essa funcionalidade. Onde o envio de arquivos deve ser realizado utilizando a funcionalidade de upload de arquivos em uma aplicação web.
 
 Busca de conteudo : cada usuario deve ser capaz de realizar buscas nos conteudos publicados.  Para as funcionalidades de Login e cadastro de usuarios, será permitida a reutilização de codigos apresentados em aula ou disponıveis em outros repositorios.  
 
