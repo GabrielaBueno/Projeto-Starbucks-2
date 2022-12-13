@@ -91,15 +91,6 @@ const init=()=>{
               emptyUpdate(passwordInput, emptyPasswordError, passwordError);
             }
         });
-        //verifyPasswordInput.addEventListener("input", () => {
-        //   if (verifyPasswordInput.value === passwordInput.value) {
-        //     verifyPasswordError.classList.add("hide");
-          //    validInput(verifyPasswordInput);
-        //   } else {
-          //    errorUpdate(verifyPasswordInput, verifyPasswordError);
-        //     emptyUpdate(passwordInput, emptyVerifyPasswordError, verifyPasswordError);
-        //   }
-        // });
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (validClasses.length == 2 && invalidClasses.length == 0) {
