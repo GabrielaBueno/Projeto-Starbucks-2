@@ -94,7 +94,7 @@ const init=()=>{
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (validClasses.length == 2 && invalidClasses.length == 0) {
-            await fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/auth/login', {
+            fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
