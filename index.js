@@ -27,7 +27,7 @@ const init=()=>{
         //Password
         let passwordInput = document.getElementById("password");
         let passwordError = document.getElementById("password-error");
-        let emptyPasswordError = document.getElementById("empty-password");
+        let emptyPasswordError = document.getElementById("empty-passwod");
 
         //Submit
         let submitButton = document.getElementById("submit-button");
