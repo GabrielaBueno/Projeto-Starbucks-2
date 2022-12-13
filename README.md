@@ -15,9 +15,6 @@ Nosso link de acesso utilizando GitHub Pages - https://gabrielabueno.github.io/P
 
 Parceria- Leonardo Gabriel Ferreira Sato.
 
-Divisão das atividades:  Gabriela responsável pela atualização do código e o Leonardo sendo responsável pelo envio da API. 
-
-
 No PROJETO 2
 
 A parte 2 do projeto Starbucks visa o aperfeiçoamento e a implementação do JavaScript, AJAX e JSON tendo como funcionalidade no lado 
