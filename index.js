@@ -6,8 +6,7 @@ import dashboard1 from "./pages/dashboard/index1.js";
 const btn=document.getElementById("btn-entrar");
 const btn1=document.getElementById("btn-participe");
 const main=document.querySelector('#root');
-const http = require('http');
-  
+
 function logado(){
   return localStorage.getItem("token");
 }
