@@ -8,7 +8,7 @@ const btn1=document.getElementById("btn-participe");
 const main=document.querySelector('#root');
 
 const http = require('http');
-let server = http.createServer{(req, res) => {
+//let server = http.createServer{(req, res) => {
  console.log(req.headers); });
   
 function logado(){
