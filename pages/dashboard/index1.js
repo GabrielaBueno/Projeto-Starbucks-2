@@ -15,20 +15,6 @@ export default()=>{
                 <div class="input-section">
                     <h3>Raposas!!!</h3>
 				</div>
-	
-	    <div class="container">
-            <h1>Buscar</h1>
-            <div id="searchWrapper">
-                <input
-                    type="text"
-                    name="searchBar"
-                    id="searchBar"
-                    placeholder="search for a character"
-                />
-            </div>
-             <ul id="lista">
-                </ul>
-        </div>
                 <ul id="lista">
                 </ul>
                 
