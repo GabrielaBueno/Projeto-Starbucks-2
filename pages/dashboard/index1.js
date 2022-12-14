@@ -14,12 +14,12 @@ export default()=>{
                 <h3>Seja Bem-vindo!!!</h3>
                 <div class="input-section">
                     <h3>Raposas!!!</h3>
+		    <div id="divBusca">
+  			<img src="" alt="Buscar..."/>
+  			<input type="text" id="txtBusca" placeholder="Buscar..."/>
+ 			 <button id="btnBusca">Buscar</button>
+		    </div>
 				</div>
-	 <div id="divBusca">
-  		<img src="" alt="Buscar..."/>
- 		 <input type="text" id="txtBusca" placeholder="Buscar..."/>
- 		 <button id="btnBusca">Buscar</button>
-	</div>
                 <ul id="lista">
                 </ul>
                 
