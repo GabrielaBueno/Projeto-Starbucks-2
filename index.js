@@ -112,13 +112,25 @@ const init=()=>{
               })
 
             .then((data) => {
-              
+              // Autenticando
+              const AppRoutes = () => {
+              const private = ({ appendChild}) => {
+                const { authenticated , loading } = useContext ( AuthContext);
+                if(loading){
+                  return <div className= "loading"> Carregando </div>;
+                }
+                if(!authenticated){
+                  return <Navigate to = "./login" />;
+                } return appendChild;
+              });
+              // validando o token
                 console.log('Success:', data);
                 localStorage.setItem("token",data.token);
                 if(data.admin){
                   window.location.hash="dashboard";
                   return;
-                }
+                };
+                
                 btn.style.display = 'none';
                 window.location.hash="dashboard1";
 
@@ -131,6 +143,7 @@ const init=()=>{
               alert("Error");
             }
         });
+       
         break;
       case "#cadastro":
         main.appendChild(cadastro());
