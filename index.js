@@ -300,38 +300,7 @@ const init=()=>{
               .then((response) => {
                 return response.json();
               })
-    
-         //-------------------------------------
-          
-         const charactersList = document.getElementById('charactersList');
-         let hpCharacters = [];
-
-         const loadCharacters = async () => {
-         try {
-         const res = await fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/fotos');
-             hpCharacters = await res.json();
-             displayCharacters(hpCharacters);
-         } catch (err) {
-        console.error(err);
-           }
-        };
-
-        const displayCharacters = (characters) => {
-        const htmlString = characters
-        .map((character) => {
-            return `
-            <li class="character">
-                <h2>${character.name}</h>
-                <img src="${character.image}"></img>
-            </li>
-        `;
-        })
-        .join('');
-        charactersList.innerHTML = htmlString;
-        };
-
-        loadCharacters();
-         //-------------------------------------
+   
               .then((imgs) => {
                 for(let img of imgs){
                    let newimage=document.createElement('img');
