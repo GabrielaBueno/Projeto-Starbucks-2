@@ -24,7 +24,7 @@ export default()=>{
     </style>
 
     <h1>Olá admin</h1>
-    <h3>Faça um uplod</h3>
+    <h3>Realize um upload</h3>
     <form id="uploadForm">
         <input type="file" id="myFiles" accept="image/*" multiple />
         <button>upload</button>
