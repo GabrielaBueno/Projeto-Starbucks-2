@@ -19,8 +19,6 @@ const init=()=>{
         break;
       case "#login":
         main.appendChild(login());
-        
-        });
         //Email
         let emailInput = document.getElementById("email");
         let emailError = document.getElementById("email-error");
@@ -144,6 +142,7 @@ const init=()=>{
         
         form.addEventListener('submit', e => {
             e.preventDefault();
+        
             validateInputs();
         });
         
@@ -170,6 +169,7 @@ const init=()=>{
             return re.test(String(email).toLowerCase());
         }
         
+        const validateInputs = () => {
             const usernameValue = username.value.trim();
             const emailValue = email.value.trim();
             const passwordValue = password.value.trim();
@@ -226,6 +226,8 @@ const init=()=>{
           .then((response) => {
               
                   return response.json()
+
+
           })
 
           .then((data) => {
@@ -237,6 +239,7 @@ const init=()=>{
           });
           
       });
+      
         break;
       case "#dashboard":
           btn.style.display = 'none';
