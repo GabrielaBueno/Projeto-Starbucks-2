@@ -110,7 +110,17 @@ img{
     background-color: #000;
     color: #d4e9e2;
 }
+/*----------barra de busca ------ */
+.divSearch{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
 
+input{
+    padding: 5px;
+    outline: none;
+}
 /*---------------------Caixa --------------*/
 box{
     margin-bottom: 30px;
