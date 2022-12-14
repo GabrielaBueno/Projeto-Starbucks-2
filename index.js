@@ -95,12 +95,6 @@ const init=()=>{
         });
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
-          //
-            form.addEventListener('submit', e => {
-            e.preventDefault();
-            validateInputs();
-              
-              
             if (validClasses.length == 2 && invalidClasses.length == 0) {
             fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/auth/login', {
                 method: 'POST',
@@ -150,7 +144,6 @@ const init=()=>{
         
         form.addEventListener('submit', e => {
             e.preventDefault();
-        
             validateInputs();
         });
         
@@ -177,7 +170,6 @@ const init=()=>{
             return re.test(String(email).toLowerCase());
         }
         
-        const validateInputs = () => {
             const usernameValue = username.value.trim();
             const emailValue = email.value.trim();
             const passwordValue = password.value.trim();
@@ -234,8 +226,6 @@ const init=()=>{
           .then((response) => {
               
                   return response.json()
-
-
           })
 
           .then((data) => {
@@ -247,7 +237,6 @@ const init=()=>{
           });
           
       });
-      
         break;
       case "#dashboard":
           btn.style.display = 'none';
