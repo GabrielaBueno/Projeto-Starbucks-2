@@ -19,6 +19,11 @@ const init=()=>{
         break;
       case "#login":
         main.appendChild(login());
+        
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            validateInputs();
+        });
         //Email
         let emailInput = document.getElementById("email");
         let emailError = document.getElementById("email-error");
