@@ -20,9 +20,6 @@ const init=()=>{
       case "#login":
         main.appendChild(login());
         
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            validateInputs();
         });
         //Email
         let emailInput = document.getElementById("email");
@@ -98,6 +95,12 @@ const init=()=>{
         });
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
+          //
+            form.addEventListener('submit', e => {
+            e.preventDefault();
+            validateInputs();
+              
+              
             if (validClasses.length == 2 && invalidClasses.length == 0) {
             fetch('https://ec2-3-88-184-58.compute-1.amazonaws.com/auth/login', {
                 method: 'POST',
