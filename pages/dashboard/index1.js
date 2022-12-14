@@ -15,6 +15,11 @@ export default()=>{
                 <div class="input-section">
                     <h3>Raposas!!!</h3>
 				</div>
+	 <div id="divBusca">
+  		<img src="" alt="Buscar..."/>
+ 		 <input type="text" id="txtBusca" placeholder="Buscar..."/>
+ 		 <button id="btnBusca">Buscar</button>
+	</div>
                 <ul id="lista">
                 </ul>
                 
