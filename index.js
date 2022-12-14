@@ -318,7 +318,7 @@ const init=()=>{
           window.location.hash="login";
         }
       default:
-        main.appendChild(home());
+       // main.appendChild(home());
     }
   })
 }
