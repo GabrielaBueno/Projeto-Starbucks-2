@@ -26,7 +26,8 @@ export default()=>{
                     placeholder="search for a character"
                 />
             </div>
-            <ul id="charactersList"></ul>
+             <ul id="lista">
+                </ul>
         </div>
                 <ul id="lista">
                 </ul>
