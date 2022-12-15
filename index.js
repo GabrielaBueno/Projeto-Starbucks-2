@@ -14,7 +14,7 @@ const init=()=>{
   window.addEventListener("hashchange", ()=>{
     main.innerHTML="";
     switch(window.location.hash){
-      case "":
+      case "":   //inserido por Gabriela
         if(logado()){
           main.appendChild(dashboard1());
           const lista=document.getElementById("lista");
@@ -352,7 +352,7 @@ const init=()=>{
           window.location.hash="login";
         }
       default:
-        main.appendChild(home());
+        //main.appendChild(home());
     }
   })
 }
