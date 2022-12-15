@@ -11,9 +11,9 @@ function logado(){
   return localStorage.getItem("token");
 }
 if(logado()){
-  main.appendChild(dashboard1());
   btn.style.display = 'none';
-  btn1.style.display = 'none';
+          btn1.style.display = 'none';
+  main.appendChild(dashboard1());
   const lista=document.getElementById("lista");
   let image = document.getElementById("image");      
   fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
@@ -146,15 +146,6 @@ const init=()=>{
               emptyUpdate(passwordInput, emptyPasswordError, passwordError);
             }
         });
-        //verifyPasswordInput.addEventListener("input", () => {
-        //   if (verifyPasswordInput.value === passwordInput.value) {
-        //     verifyPasswordError.classList.add("hide");
-          //    validInput(verifyPasswordInput);
-        //   } else {
-          //    errorUpdate(verifyPasswordInput, verifyPasswordError);
-        //     emptyUpdate(passwordInput, emptyVerifyPasswordError, verifyPasswordError);
-        //   }
-        // });
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (validClasses.length == 2 && invalidClasses.length == 0) {
@@ -176,7 +167,6 @@ const init=()=>{
               })
 
             .then((data) => {
-              
                 console.log('Success:', data);
                 localStorage.setItem("token",data.token);
                 if(data.admin){
@@ -359,7 +349,8 @@ const init=()=>{
         if(logado()){
           main.appendChild(dashboard1());
           const lista=document.getElementById("lista");
-          let image = document.getElementById("image");      
+          let image = document.getElementById("image");   
+             
           fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
               .then((response) => {
                 return response.json();
@@ -371,9 +362,9 @@ const init=()=>{
                   newimage.src = img.url;
                   lista.appendChild(newimage);
                 }
-              console.log('Success:', data);
-       
-             })
+                console.log('Success:', data);
+               
+              })
               .catch((error) => {
                 console.error('Error:', error);
               });
