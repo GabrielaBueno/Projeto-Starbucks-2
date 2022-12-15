@@ -10,13 +10,43 @@ const main=document.querySelector('#root');
 function logado(){
   return localStorage.getItem("token");
 }
+if(logado()){
+  main.appendChild(dashboard1());
+  btn.style.display = 'none';
+  btn1.style.display = 'none';
+  const lista=document.getElementById("lista");
+  let image = document.getElementById("image");      
+  fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
+      .then((response) => {
+        return response.json();
+      })
+
+      .then((imgs) => {
+        for(let img of imgs){
+           let newimage=document.createElement('img');
+          newimage.src = img.url;
+          lista.appendChild(newimage);
+        }
+        console.log('Success:', data);
+       
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+}
+else{
+  window.location.hash="";
+}
 const init=()=>{
   window.addEventListener("hashchange", ()=>{
+    
     main.innerHTML="";
     switch(window.location.hash){
-      case "":   //inserido por Gabriela
+      case "":
         if(logado()){
           main.appendChild(dashboard1());
+          btn.style.display = 'none';
+          btn1.style.display = 'none';
           const lista=document.getElementById("lista");
           let image = document.getElementById("image");      
           fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
