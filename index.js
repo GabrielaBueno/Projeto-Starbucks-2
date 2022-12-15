@@ -7,15 +7,17 @@ const btn=document.getElementById("btn-entrar");
 const btn1=document.getElementById("btn-participe");
 const main=document.querySelector('#root');
 
+
 function logado(){
   return localStorage.getItem("token");
 }
 if(logado()){
   btn.style.display = 'none';
-          btn1.style.display = 'none';
+        btn1.style.display = 'none';
   main.appendChild(dashboard1());
   const lista=document.getElementById("lista");
-  let image = document.getElementById("image");      
+  let image = document.getElementById("image");   
+     
   fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
       .then((response) => {
         return response.json();
@@ -35,11 +37,13 @@ if(logado()){
       });
 }
 else{
-  window.location.hash="";
+  window.location.hash="login";
 }
+
+
 const init=()=>{
   window.addEventListener("hashchange", ()=>{
-    
+
     main.innerHTML="";
     switch(window.location.hash){
       case "":
@@ -167,6 +171,7 @@ const init=()=>{
               })
 
             .then((data) => {
+              
                 console.log('Success:', data);
                 localStorage.setItem("token",data.token);
                 if(data.admin){
@@ -280,8 +285,6 @@ const init=()=>{
           .then((response) => {
               
                   return response.json()
-
-
           })
 
           .then((data) => {
