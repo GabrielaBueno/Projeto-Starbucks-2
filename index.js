@@ -112,8 +112,8 @@ const init=()=>{
               })
 
             .then((data) => {
-              user=JSON.parse(localStorage.getItem('user'))
-              console.log(user);
+             /* user=JSON.parse(localStorage.getItem('user'))
+              console.log(user);*/
              /* // Autenticando
               const AppRoutes = () => {
               const private = ({ appendChild}) => {
