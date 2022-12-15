@@ -112,19 +112,6 @@ const init=()=>{
               })
 
             .then((data) => {
-             /* user=JSON.parse(localStorage.getItem('user'))
-              console.log(user);*/
-             /* // Autenticando
-              const AppRoutes = () => {
-              const private = ({ appendChild}) => {
-                const { authenticated , loading } = useContext ( AuthContext);
-                if(loading){
-                  return <div className= "loading"> Carregando </div>;
-                }
-                if(!authenticated){
-                  return <Navigate to = "./login" />;
-                } return appendChild;
-              }); */
               // validando o token
                 console.log('Success:', data);
                 localStorage.setItem("token",data.token);
