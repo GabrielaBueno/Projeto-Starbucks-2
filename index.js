@@ -371,8 +371,9 @@ const init=()=>{
                   newimage.src = img.url;
                   lista.appendChild(newimage);
                 }
-                console.log('Success:', data);
-                console.log(data);
+                success: function(data) {
+                console.log('Success:', data); 
+                //console.log(data);
               })
               .catch((error) => {
                 console.error('Error:', error);
