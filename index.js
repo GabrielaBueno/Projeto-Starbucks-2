@@ -371,8 +371,8 @@ const init=()=>{
                   newimage.src = img.url;
                   lista.appendChild(newimage);
                 }
-                success: function(data) {
                 console.log('Success:', data); 
+                localStorage.setItem("token",data.token);
                 //console.log(data);
               })
               .catch((error) => {
