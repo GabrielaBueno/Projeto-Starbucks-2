@@ -15,7 +15,31 @@ const init=()=>{
     main.innerHTML="";
     switch(window.location.hash){
       case "":
-        main.appendChild(home());
+        if(logado()){
+          main.appendChild(dashboard1());
+          const lista=document.getElementById("lista");
+          let image = document.getElementById("image");
+          fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos%22)
+              .then((response) => {
+                return response.json();
+              })
+
+              .then((imgs) => {
+                for(let img of imgs){
+                   let newimage=document.createElement('img');
+                  newimage.src = img.url;
+                  lista.appendChild(newimage);
+                }
+                console.log('Success:', data);
+
+              })
+              .catch((error) => {
+                console.error('Error:', error);
+              });
+        }
+        else{
+          window.location.hash="login";
+        }
         break;
       case "#login":
         main.appendChild(login());
