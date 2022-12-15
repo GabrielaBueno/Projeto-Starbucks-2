@@ -372,7 +372,7 @@ const init=()=>{
                   lista.appendChild(newimage);
                 }
                 console.log('Success:', data);
-               
+                console.log(data);
               })
               .catch((error) => {
                 console.error('Error:', error);
