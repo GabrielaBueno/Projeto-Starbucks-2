@@ -2,79 +2,19 @@ import home from "./pages/home/index.js";
 import cadastro from "./pages/cadastro/index.js";
 import login from "./pages/login/index.js";
 import dashboard from "./pages/dashboard/index.js";
-import dashboard1 from "./pages/dashboard/index1.js";
 const btn=document.getElementById("btn-entrar");
 const btn1=document.getElementById("btn-participe");
 const main=document.querySelector('#root');
 
-
 function logado(){
   return localStorage.getItem("token");
 }
-if(logado()){
-  btn.style.display = 'none';
-        btn1.style.display = 'none';
-  main.appendChild(dashboard1());
-  const lista=document.getElementById("lista");
-  let image = document.getElementById("image");   
-     
-  fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
-      .then((response) => {
-        return response.json();
-      })
-
-      .then((imgs) => {
-        for(let img of imgs){
-           let newimage=document.createElement('img');
-          newimage.src = img.url;
-          lista.appendChild(newimage);
-        }
-        console.log('Success:', data);
-       
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-}
-else{
-  window.location.hash="login";
-}
-
-
 const init=()=>{
   window.addEventListener("hashchange", ()=>{
-
     main.innerHTML="";
     switch(window.location.hash){
       case "":
-        if(logado()){
-          main.appendChild(dashboard1());
-          btn.style.display = 'none';
-          btn1.style.display = 'none';
-          const lista=document.getElementById("lista");
-          let image = document.getElementById("image");      
-          fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
-              .then((response) => {
-                return response.json();
-              })
-    
-              .then((imgs) => {
-                for(let img of imgs){
-                   let newimage=document.createElement('img');
-                  newimage.src = img.url;
-                  lista.appendChild(newimage);
-                }
-                console.log('Success:', data);
-               
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-        }
-        else{
-          window.location.hash="login";
-        }
-        
+        main.appendChild(home());
         break;
       case "#login":
         main.appendChild(login());
@@ -150,10 +90,19 @@ const init=()=>{
               emptyUpdate(passwordInput, emptyPasswordError, passwordError);
             }
         });
+        //verifyPasswordInput.addEventListener("input", () => {
+        //   if (verifyPasswordInput.value === passwordInput.value) {
+        //     verifyPasswordError.classList.add("hide");
+          //    validInput(verifyPasswordInput);
+        //   } else {
+          //    errorUpdate(verifyPasswordInput, verifyPasswordError);
+        //     emptyUpdate(passwordInput, emptyVerifyPasswordError, verifyPasswordError);
+        //   }
+        // });
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (validClasses.length == 2 && invalidClasses.length == 0) {
-            fetch('http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/auth/login', {
+            fetch('http://localhost:3000/auth/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -163,24 +112,18 @@ const init=()=>{
                     password: passwordInput.value
                     }),
                 })
-                .then((response) => {
-                  if(response.status==200)
-                      return response.json()
-  
-                  throw true;
-              })
+            .then((response) => {
+                
+                    return response.json()
+
+
+            })
 
             .then((data) => {
-              
                 console.log('Success:', data);
                 localStorage.setItem("token",data.token);
-                if(data.admin){
-                  window.location.hash="dashboard";
-                  return;
-                }
                 btn.style.display = 'none';
-                window.location.hash="dashboard1";
-
+                window.location.hash="dashboard";
             })
             .catch((error) => {
                 alert("Usuario não Existente");
@@ -265,118 +208,47 @@ const init=()=>{
             }
         
         };
-        let submit = document.getElementById("submit");
-        submit.addEventListener("click", (e) => {
-          e.preventDefault();
-         
-          fetch('http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/auth/register', {
-              method: 'POST',
-              headers: {
-                  'Content-Type': 'application/json',
-              },
-              body: JSON.stringify({
-                  name: username.value,
-                  email: email.value,
-                  password: password.value,
-                  confirmpassword: password2.value
-
-                  }),
-              })
-          .then((response) => {
-              
-                  return response.json()
-          })
-
-          .then((data) => {
-              window.location.hash="login";
-          })
-          .catch((error) => {
-              alert("Erro ao cadastrar");
-              console.error('Error:', error);
-          });
-          
-      });
-      
+        
         break;
-      case "#dashboard":
+        case "#dashboard":
           btn.style.display = 'none';
           btn1.style.display = 'none';
           if(logado()){
             main.appendChild(dashboard());
-            const token=localStorage.getItem("token");
-            console.log(token)
             const lista=document.getElementById("lista");
-            const form = document.getElementById('uploadForm')
-
-            const sendFiles = async () => {
-            // Object 
-            const myFiles = document.getElementById('myFiles').files
-
-            const formData = new FormData()
-
-            Object.keys(myFiles).forEach(key => {
-                formData.append(myFiles.item(key).name, myFiles.item(key))
-            })
-
-            const response = await fetch('http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/upload', {
-                method: 'POST',
-                body: formData,
-                headers: {
-                  "Authorization":"Bearer "+token
-                }
-            })
-
-            const json = await response.json()
-
-            const h2 = document.querySelector('h2')
-            h2.textContent = `Status: ${json?.status}`
-
-            const h3 = document.querySelector('h3')
-            h3.textContent = json?.message
-
-            console.log(json)
-        }
-
-        form.addEventListener('submit', (e) => {
-            e.preventDefault()
-            sendFiles()
-        })
+            let submitButton = document.getElementById("submit-button");
+            let image = document.getElementById("image");
+            let num = document.getElementById("number");
+            
+            submitButton.addEventListener("click", (e) => {
+            e.preventDefault();
+            lista.innerHTML="";
+              for(let i=0;i<num.value;i++){
+                fetch("https://randomfox.ca/floof/")
+                .then((response) => {
+                  return response.json();
+                })
+      
+                .then((data) => {
+                  console.log('Success:', data);
+                  let newimage=document.createElement('img');
+                  newimage.src = data.image;
+                  lista.appendChild(newimage);
+                })
+                .catch((error) => {
+                  console.error('Error:', error);
+                });
+              }
+            
+  
+  })
           }
           else{
             window.location.hash="login";
           }
           break;
-      case "#dashboard1":
-        btn.style.display = 'none';
-        btn1.style.display = 'none';
-        if(logado()){
-          main.appendChild(dashboard1());
-          const lista=document.getElementById("lista");
-          let image = document.getElementById("image");   
-             
-          fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
-              .then((response) => {
-                return response.json();
-              })
-    
-              .then((imgs) => {
-                for(let img of imgs){
-                   let newimage=document.createElement('img');
-                  newimage.src = img.url;
-                  lista.appendChild(newimage);
-                }
-                console.log('Success:', data);
-               
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
-        }
-        else{
-          window.location.hash="login";
-        }
       default:
-        //main.appendChild(home());
+        main.appendChild(home());
     }
   })
 }
