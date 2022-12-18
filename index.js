@@ -359,10 +359,9 @@ const init=()=>{
           break;
       case "#dashboard1":
         
-        btn.style.display = 'none';
-        btn1.style.display = 'none';
         if(logado()){
-          
+          btn.style.display = 'none';
+          btn1.style.display = 'none';
           main.appendChild(dashboard1());
           const btn = document.getElementById('btn');
           
