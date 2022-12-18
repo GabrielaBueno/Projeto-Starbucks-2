@@ -150,6 +150,15 @@ const init=()=>{
               emptyUpdate(passwordInput, emptyPasswordError, passwordError);
             }
         });
+        //verifyPasswordInput.addEventListener("input", () => {
+        //   if (verifyPasswordInput.value === passwordInput.value) {
+        //     verifyPasswordError.classList.add("hide");
+          //    validInput(verifyPasswordInput);
+        //   } else {
+          //    errorUpdate(verifyPasswordInput, verifyPasswordError);
+        //     emptyUpdate(passwordInput, emptyVerifyPasswordError, verifyPasswordError);
+        //   }
+        // });
         submitButton.addEventListener("click", (e) => {
             e.preventDefault();
             if (validClasses.length == 2 && invalidClasses.length == 0) {
@@ -285,6 +294,8 @@ const init=()=>{
           .then((response) => {
               
                   return response.json()
+
+
           })
 
           .then((data) => {
@@ -347,30 +358,43 @@ const init=()=>{
           }
           break;
       case "#dashboard1":
+        
         btn.style.display = 'none';
         btn1.style.display = 'none';
         if(logado()){
+          
           main.appendChild(dashboard1());
-          const lista=document.getElementById("lista");
-          let image = document.getElementById("image");   
-             
-          fetch("http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/fotos")
-              .then((response) => {
-                return response.json();
-              })
-    
-              .then((imgs) => {
-                for(let img of imgs){
-                   let newimage=document.createElement('img');
-                  newimage.src = img.url;
-                  lista.appendChild(newimage);
+          const btn = document.getElementById('btn');
+          
+          console.log(btn);
+          btn.addEventListener("click", (e) => {
+            console.log(btn);
+            e.preventDefault();
+            
+            consultarCep();
+            function consultarCep(){
+              var cep = document.getElementById("cep").value;
+              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+cep;
+              var request=new XMLHttpRequest();
+              request.open('GET', url);
+              request.onerror=function(e){
+                document.getElementById('return').innerHTML='API Offline ou cep invalido'
+              }
+              request.onload=()=>{
+                var response=JSON.parse(request.responseText);
+                if(response.erro==true){
+                  document.getElementById('return').innerHTML='CEP sem localiza'
+                }else{
+                  document.getElementById('return').innerHTML='CEP:'+response.name + '<br>'+
+                                                              'endereço:'+response.lougradouro + '<br>'+
+                                                              'bairro:'+response.bairro + '<br>'+
+                                                              'city:'+response.localidade + '/'+response.uf;
                 }
-                console.log('Success:', data);
-               
-              })
-              .catch((error) => {
-                console.error('Error:', error);
-              });
+              }
+              request.send();
+            }
+          })
+          
         }
         else{
           window.location.hash="login";
