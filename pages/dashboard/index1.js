@@ -2,13 +2,13 @@ export default()=>{
     const container = document.createElement('div');
     const template =`
     <link rel="stylesheet" href="teste.css"/>
-    <div class="body-wrapper">
+ /*   <div class="body-wrapper">
     
         <div class="main-container">
 
             <div class="progress hide r-progress">
                   <div class="indeterminate"></div>
-              </div> 
+              </div> */
 
      <body>
         <h3> Seja Bem-vindo!</h3>
@@ -20,10 +20,10 @@ export default()=>{
          //<ul id="lista">m</ul>
                 
     
+ /*  </div>
     </div>
-    </div>
- //  </section>
- //  </div>
+  </section>
+   </div> */
 
 
     `;
