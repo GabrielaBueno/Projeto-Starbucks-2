@@ -395,22 +395,20 @@ const init=()=>{
             
             consultarCep();
             function consultarCep(){
-              var cep = document.getElementById("cep").value;
-              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+cep;
+              var cep = document.getElementById("nome").value;
+              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+nome;
               var request=new XMLHttpRequest();
               request.open('GET', url);
               request.onerror=function(e){
-                document.getElementById('return').innerHTML='API Offline ou cep invalido'
+                document.getElementById('return').innerHTML='API Offline ou nome invalido'
               }
               request.onload=()=>{
                 var response=JSON.parse(request.responseText);
                 if(response.erro==true){
-                  document.getElementById('return').innerHTML='CEP sem localiza'
+                  document.getElementById('return').innerHTML='nome nao localizado'
                 }else{
-                  document.getElementById('return').innerHTML='CEP:'+response.name + '<br>'+
-                                                              'endereço:'+response.lougradouro + '<br>'+
-                                                              'bairro:'+response.bairro + '<br>'+
-                                                              'city:'+response.localidade + '/'+response.uf;
+                  document.getElementById('return').innerHTML='img:'+response.name + '<br>'+
+                                                              '/'+response.uf;
                 }
               }
               request.send();
