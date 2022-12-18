@@ -371,37 +371,38 @@ const init=()=>{
             console.log(btn);
             e.preventDefault();
             
+            if(logado()){
+          
+          main.appendChild(dashboard1());
+          const btn = document.getElementById('btn');
+          
+          console.log(btn);
+          btn.addEventListener("click", (e) => {
+            console.log(btn);
+            e.preventDefault();
+            
             consultarImg();
             function consultarImg(){
-              var cep = document.getElementById("img").value;
-              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+img;
+              var img = document.getElementById("cep").value;
+              var url='http://localhost:3000/files/'+img;
               var request=new XMLHttpRequest();
-              request.open('GET', url);
+              request.open('GET', url, true);
               request.onerror=function(e){
-                document.getElementById('return').innerHTML='API Offline ou Nome invalido'
+                document.getElementById('return').innerHTML='API Offline ou nome invalido'
               }
               request.onload=()=>{
                 var response=JSON.parse(request.responseText);
                 if(response.erro==true){
-                  document.getElementById('return').innerHTML='Imagem não localizada'
-                }else{
-                  document.getElementById('return').innerHTML='img:'+response.name + '<br>'+
-                                                              '/'+response.uf;
+                  document.getElementById('return').innerHTML='nome não localizado'
+                }else
+                  document.getElementById('return').innerHTML='img:'+response.name;
                 }
               }
+              
               request.send();
-            }
-          })
+            })
           
         }
-        else{
-          window.location.hash="login";
-        }
-      default:
-        //main.appendChild(home());
-    }
-  })
-}
 window.addEventListener("load", ()=>{
   main.appendChild(home());
   init();
