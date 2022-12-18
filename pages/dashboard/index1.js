@@ -2,28 +2,14 @@ export default()=>{
     const container = document.createElement('div');
     const template =`
     <link rel="stylesheet" href="teste.css"/>
-    <div class="body-wrapper">
     
-        <div class="main-container">
-
-            <div class="progress hide r-progress">
-                  <div class="indeterminate"></div>
-              </div>
-
-            <div class="container-fluid">
-                <h3>Seja Bem-vindo!!!</h3>
-                <div class="input-section">
-                    <h3>Raposas!!!</h3>
-	    </div>
-                <ul id="lista">
-                </ul>
-                
-            </div>
-        </div>
-    </div>
-    </div>
-    </section>
-    </div>
+    <body>
+        <h1>Digite seu cep
+        </h1>
+        <input type='text' id='cep' name='cep' size='15' maxlenght='8' autocomplete='off'>
+        <button id='btn'>Concultar</button>
+        <div style='padding-top:20px;' id='return'></div>
+    </body>
 
 
     `;
