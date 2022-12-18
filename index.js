@@ -405,9 +405,9 @@ const init=()=>{
               request.onload=()=>{
                 var response=JSON.parse(request.responseText);
                 if(response.erro==true){
-                  document.getElementById('return').innerHTML='nome nao localizado'
-                }else{
-                  document.getElementById('return').innerHTML='img:'+response.name + '<br>'+
+                  document.getElementById('return').innerHTML='nome não localizado'
+                }else
+                  document.getElementById('return').innerHTML='nome:'+response.name + '<br>'+
                                                               '/'+response.uf;
                 }
               }
