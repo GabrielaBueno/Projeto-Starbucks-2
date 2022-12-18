@@ -360,7 +360,7 @@ const init=()=>{
       case "#dashboard1":
         
         btn.style.display = 'none';
-        btn1.style.display = 'none';
+       // btn1.style.display = 'none';
         if(logado()){
           
           main.appendChild(dashboard1());
