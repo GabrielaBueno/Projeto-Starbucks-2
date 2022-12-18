@@ -395,7 +395,7 @@ const init=()=>{
             
             consultarCep();
             function consultarCep(){
-              var cep = document.getElementById("nome").value;
+              var cep = document.getElementById("img").value;
               var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+nome;
               var request=new XMLHttpRequest();
               request.open('GET', url);
@@ -407,7 +407,7 @@ const init=()=>{
                 if(response.erro==true){
                   document.getElementById('return').innerHTML='nome não localizado'
                 }else
-                  document.getElementById('return').innerHTML='nome:'+response.name + '<br>'+
+                  document.getElementById('return').innerHTML='img:'+response.name + '<br>'+
                                                               '/'+response.uf;
                 }
               }
