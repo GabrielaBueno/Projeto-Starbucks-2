@@ -5,7 +5,7 @@ export default()=>{
     
     <body>
         <h3> Seja Bem-vindo!</h3>
-        <h3>Digite seu CEP: </h3>
+        <h3>Informe o seu CEP: </h3>
         <input type='text' id='cep' name='cep' size='15' maxlenght='8' autocomplete='off'>
         <button id='btn'>Consultar</button>
         <div style='padding-top:20px;' id='return'></div>
