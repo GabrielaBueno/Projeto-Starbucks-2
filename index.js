@@ -393,10 +393,10 @@ const init=()=>{
             console.log(btn);
             e.preventDefault();
             
-            consultarCep();
-            function consultarCep(){
+            consultarImg();
+            function consultarImg(){
               var cep = document.getElementById("img").value;
-              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+nome;
+              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+img;
               var request=new XMLHttpRequest();
               request.open('GET', url);
               request.onerror=function(e){
