@@ -7,28 +7,6 @@ const btn=document.getElementById("btn-entrar");
 const btn1=document.getElementById("btn-participe");
 const main=document.querySelector('#root');
 
-/* export function setCookie(cname, cvalue, exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
-  let expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-export function getCookie(cname) {
-  let name = cname + "=";
-  let ca = document.cookie.split(";");
-  for (let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) === " ") {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) === 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-} */
-
 
 function logado(){
   return localStorage.getItem("token");
@@ -393,22 +371,24 @@ const init=()=>{
             console.log(btn);
             e.preventDefault();
             
-            consultarImg();
-            function consultarImg(){
-              var cep = document.getElementById("img").value;
-              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+img;
+            consultarCep();
+            function consultarCep(){
+              var cep = document.getElementById("cep").value;
+              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+cep;
               var request=new XMLHttpRequest();
               request.open('GET', url);
               request.onerror=function(e){
-                document.getElementById('return').innerHTML='API Offline ou nome invalido'
+                document.getElementById('return').innerHTML='API Offline ou cep invalido'
               }
               request.onload=()=>{
                 var response=JSON.parse(request.responseText);
                 if(response.erro==true){
-                  document.getElementById('return').innerHTML='nome não localizado'
-                }else
-                  document.getElementById('return').innerHTML='img:'+response.name + '<br>'+
-                                                              '/'+response.uf;
+                  document.getElementById('return').innerHTML='CEP sem localiza'
+                }else{
+                  document.getElementById('return').innerHTML='CEP:'+response.name + '<br>'+
+                                                              'endereço:'+response.lougradouro + '<br>'+
+                                                              'bairro:'+response.bairro + '<br>'+
+                                                              'city:'+response.localidade + '/'+response.uf;
                 }
               }
               request.send();
