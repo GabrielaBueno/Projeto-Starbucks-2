@@ -5,9 +5,11 @@ export default()=>{
     <div class="body-wrapper">
     
         <div class="main-container">
+
             <div class="progress hide r-progress">
                   <div class="indeterminate"></div>
               </div>
+
             <div class="container-fluid">
                 <h3>Seja Bem-vindo!!!</h3>
                 <div class="input-section">
@@ -22,6 +24,8 @@ export default()=>{
     </div>
     </section>
     </div>
+
+
     `;
     container.innerHTML=template;
     return container;
