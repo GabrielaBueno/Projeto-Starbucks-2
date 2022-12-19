@@ -375,7 +375,7 @@ const init=()=>{
             consultarImg();
             function consultarImg(){
               var img = document.getElementById("img").value;
-              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/+img';
+              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+img;
               var request=new XMLHttpRequest();
               request.open('GET', url, true);
               request.onerror=function(e){
