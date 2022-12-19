@@ -13,7 +13,7 @@ const lista=document.getElementById("lista");
 function logado(){
   return localStorage.getItem("token");
 }
-if(logado()){
+/*if(logado()){
   btn.style.display = 'none';
         btn1.style.display = 'none';
   main.appendChild(dashboard1());
@@ -40,7 +40,7 @@ if(logado()){
 }
 else{
   window.location.hash="login";
-}
+} */
 
 
 const init=()=>{
