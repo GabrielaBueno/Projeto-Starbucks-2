@@ -360,23 +360,22 @@ const init=()=>{
           }
           break;
       case "#dashboard1":
-        
         btn.style.display = 'none';
         btn1.style.display = 'none';
         if(logado()){
-          
+          const lista=document.getElementById("lista");
           main.appendChild(dashboard1());
           const btn = document.getElementById('btn');
-          
+
           console.log(btn);
           btn.addEventListener("click", (e) => {
             console.log(btn);
             e.preventDefault();
-            
+
             consultarImg();
             function consultarImg(){
               var img = document.getElementById("img").value;
-              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/'+img;
+              var url='http://ec2-3-88-184-58.compute-1.amazonaws.com:3000/files/%27+img;
               var request=new XMLHttpRequest();
               request.open('GET', url, true);
               request.onerror=function(e){
@@ -387,18 +386,17 @@ const init=()=>{
                 if(response.erro==true){
                   document.getElementById('return').innerHTML='nome não localizado'
                 }else
-                  document.getElementById('return').innerHTML='img:'+response.name;
+                  document.getElementById('return').innerHTML='img:'+img;
+                  document.getElementById("element").innerHTML='<img src='+url+'></img>';
+
                 }
                 request.send();
-                let newimage=document.createElement('img');
-                newimage.src = img.image;
-                lista.appendChild(newimage);
-                
+
               }
-              
+
              //request.send();
             })
-          
+
         }
         else{
           window.location.hash="login";
